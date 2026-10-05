@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg-app: #f8fafc;
+  --bg-sidebar: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f1f5f9;
+  --bg-input: #f8fafc;
+  --border-app: #e2e8f0;
+  --border-card: #e2e8f0;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-soft: #94a3b8;
+  --card-item-bg: #f8fafc;
+  --card-item-hover: #f1f5f9;
+  --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+}
+
+html.dark {
+  --bg-app: #0b0f17;
+  --bg-sidebar: #0e1422;
+  --bg-surface: #111827;
+  --bg-surface-elevated: #131b2e;
+  --bg-input: #0a0e17;
+  --border-app: rgba(30, 41, 59, 0.8);
+  --border-card: rgba(30, 41, 59, 0.8);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-soft: #64748b;
+  --card-item-bg: #0e1422;
+  --card-item-hover: #141d30;
+  --card-shadow: none;
+}
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--bg-app);
+    color: var(--text-main);
+  }
+}
+
+.bg-app {
+  background-color: var(--bg-app);
+}
+
+.bg-sidebar {
+  background-color: var(--bg-sidebar);
+}
+
+.bg-surface {
+  background-color: var(--bg-surface);
+  box-shadow: var(--card-shadow);
+}
+
+.bg-surface-elevated {
+  background-color: var(--bg-surface-elevated);
+}
+
+.bg-app-input {
+  background-color: var(--bg-input);
+}
+
+.border-app {
+  border-color: var(--border-app);
+}
+
+.text-app-main {
+  color: var(--text-main);
+}
+
+.text-app-muted {
+  color: var(--text-muted);
+}
+
+.text-app-soft {
+  color: var(--text-soft);
+}
+
+.card-item-theme {
+  background-color: var(--card-item-bg);
+}
+.card-item-theme:hover {
+  background-color: var(--card-item-hover);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.2);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.4);
+}
+
+/* Pulse animation for live sync dot */
+@keyframes livePulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+}
+
+.live-pulse {
+  animation: livePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
